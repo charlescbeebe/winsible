@@ -1,0 +1,6 @@
+---
+- name: make sure ping.ps1 is on linux executor
+  copy: src=../files/ping.ps1 dest=/opt/tclwinrunner/ping.ps1 force=yes owner=root group=root mode=0644 backup=yes
+
+- name: ping windows slave from linux executor
+  winrm: pshostname={{ windows_slave_url }} psscriptname=/opt/tclwinrunner/ping.ps1  psusername="Administrator" pspassword={{ windows_slave_admin_passwd }}

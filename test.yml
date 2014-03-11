@@ -1,0 +1,5 @@
+---
+- hosts: executor
+  sudo: yes
+  roles:
+    - ping
