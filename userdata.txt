@@ -1,0 +1,13 @@
+# use this if setting userdata as text in the AWS console
+<powershell>
+winrm qc -q
+set-item wsman:\localhost\service\allowunencrypted true
+set-item wsman:\localhost\service\auth\basic true
+</powershell>
+
+# use this if setting userdata via a CloudFormation init script
+"<powershell>\n",
+  "winrm qc -q \n",
+  "set-item wsman:\\localhost\\service\\allowunencrypted true \n",
+  "set-item wsman:\\localhost\\service\\auth\\basic true \n",
+"</powershell>\n"
